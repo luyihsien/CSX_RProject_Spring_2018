@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "cool class in NTU"
 author: "luyihsien"
 date: "2018¦~7¤ë4¤é"
 output: html_document
