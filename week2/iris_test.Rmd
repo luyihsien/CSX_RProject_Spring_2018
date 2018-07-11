@@ -1,0 +1,44 @@
+---
+title: "iris_test"
+author: "呂羿賢"
+date: "2018年7月11日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 鳶尾花
+```{r}
+library(ggplot2)
+iris
+```
+
+## 單變數:類別型
+
+```{r, echo=FALSE}
+ggplot(data = iris, aes(x =  Species)) +
+geom_bar(fill = "lightblue", colour = "black")
+```
+
+## 單變數:連續型
+
+```{r,echo=FALSE}
+ggplot(data = iris, aes(x = Sepal.Length)) +
+geom_bar(fill = "lightblue", colour = "black")
+```
+
+## 雙變數:連續vs連續
+
+```{r,echo=FALSE}
+ggplot(data = iris, aes(x = Sepal.Length,y=Sepal.Width)) +
+geom_point()
+```
+
+## 雙變數:離散 vs 連續
+
+```{r,echo=FALSE}
+ggplot(data = iris, aes(x = Petal.Length ,y=Sepal.Width)) +
+geom_boxplot()
+```
