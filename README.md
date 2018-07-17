@@ -5,4 +5,4 @@ week1<br>
 [hw1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week1/try.html)<br>
 week2<br>
 [hw2_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week2/iris_test.html)<br>
-[hw2_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/tree/master/week2/textmining.html)
+[hw2_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week2/textmining.html)
