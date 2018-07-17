@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##網路爬蟲
+##網路爬蟲 改爬研究所版
 
 
 ```{r}
@@ -60,7 +60,6 @@ docs <- tm_map(docs, toSpace, "正取")
 docs <- tm_map(docs, removePunctuation)
 docs <- tm_map(docs, removeNumbers)
 docs <- tm_map(docs, stripWhitespace)
-docs
 ```
 
 ##詞頻矩陣
