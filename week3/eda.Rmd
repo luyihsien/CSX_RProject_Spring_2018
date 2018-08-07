@@ -73,6 +73,7 @@ print(s[order(s[,2],decreasing=T),1])#碩士薪水排行
 print(s[order(s[,4],decreasing=T),1])#學士薪水排行
 print(paste(s[order(as.vector(s[,2])/as.vector(s[,4]),decreasing=T),1],sort(as.vector(s[,2])/as.vector(s[,4]),decreasing=T)))
 ```
+
 ```{r pressure, echo=FALSE}
 pie(del,labels=lbdel,main="準時畢業前二十名學類")
 pie(del,labels=lbdeh,main="延畢前二十名學類")
