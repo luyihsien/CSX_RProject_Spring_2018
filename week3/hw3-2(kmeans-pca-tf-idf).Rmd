@@ -18,7 +18,7 @@ library(NLP)
 ```{r}
 #資料匯整
 #將txt檔匯入成corpus檔
-docs.corpus <- Corpus(DirSource("C:\Users\luyih\Documents\GitHub\CSX_RProject_Spring_2018\week3\txt1"))
+docs.corpus <- Corpus(DirSource("txt1"))
 #將corpus檔斷詞
 docs.seg <- tm_map(docs.corpus, segmentCN) 
 #將斷詞後的檔案轉成tdm檔
