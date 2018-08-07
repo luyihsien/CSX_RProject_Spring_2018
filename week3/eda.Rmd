@@ -1,0 +1,82 @@
+---
+title: "大學停看聽 對於大學科系的分析"
+author: "呂羿賢"
+date: "2018年8月7日"
+output: html_document
+---
+自從西元2000年廣設大學以來，大學入學率近百分之百，校系林立<br>而最近指考放榜，幾家歡樂幾家愁，該重考嗎?還是轉學考??或者待在原系所是最好的選擇?<br>正在念書的大學生又該如何知道自己的方向?<br>大學畢業了該不該念碩士?或是直接就業?<br>本資料扎根台灣，帶您一同來了解<br>
+一.良好問題定義<br>
+任務:想了解大學科系與學類的延畢率 起薪等等，了解各科系的生態與潛力<br>
+經驗數據:從政府開放式平台獲取的大學延畢率與各學類的畢業後三年平均薪水<br>
+衡量方法:以公私立與學群劃分對照延畢率與就業薪水，做直接數據上的比較<br>
+二:開始製作EDA<br>
+1.匯入模組與資料
+```{r}
+library(readxl)
+library(ggplot2)
+library(data.table)
+s<-data.frame(fread('Student_RPT_19.csv'))
+h<-read_excel("高教資料總表串聯3.xlsx")
+```
+2.數據圖<br>
+先從比例去理解
+```{r}
+colnames(h)#釐清欄位總類別
+htl<-order(h$delay_rate,decreasing=T)#延畢率由小至大
+lth<-order(h$delay_rate)#延畢率由大至小
+lths<-head(h$shool_and_department[lth],20)#校系準時畢業前20
+lthss<-head(h$school[lth],20)#學校準時畢業前20
+lthsss<-table(lthss)#計算種類下數量
+htls<-head(h$shool_and_department[htl],20)
+htlss<-head(h$school[htl],20)
+htlsss<-table(htlss)
+lblslh <- paste(names(lthsss), lthsss, sep="")
+print(lthsss)
+print(names(lthsss))
+print(lblslh)
+#清一色國立
+pie(lthsss,labels=lblslh,main="準時畢業前20名大學")
+lblshl <- paste(names(htlsss), htlsss, sep="")
+pie(htlsss,labels=lblshl,main="延畢前20名大學")
+sshl<-table(head(h$county[htl],20))
+slhs<-table(head(h$county[lth],20))
+lb1<-paste(names(sshl), htlsss, sep="")
+lb2<-paste(names(slhs), htlsss, sep="")
+pie(htlsss,labels=lb2,main="準時畢業縣市前20名所在")
+pie(htlsss,labels=lb1,main="延畢縣市前20名所在")
+ppl<-table(head(h$private_public[lth],20))
+lbppl<-paste(names(ppl),ppl,sep="")
+pie(ppl,label=lbppl,main="公私立準時畢業率前20名")
+```
+
+```{r}
+table(head(h$college[lth],20))
+del<-table(head(h$college[lth],20))
+lbdel<-paste(names(del),del,sep="")
+pie(del,labels=lbdel,main="準時畢業前二十名學類")
+pph<-table(head(h$private_public[htl],20))
+lbpph<-paste(names(pph),pph,sep="")
+pie(pph,label=lbpph,main="公私立延畢率前20名")
+```
+
+```{r}
+table(head(h$college[htl],20))
+deh<-table(head(h$college[htl],20))
+lbdeh<-paste(names(deh),deh,sep="")
+pie(del,labels=lbdeh,main="延畢前二十名學類")
+print(s[order(s[,2],decreasing=T),1])#碩士薪水排行
+print(s[order(s[,4],decreasing=T),1])#學士薪水排行
+print(as.vector(s[,4]))
+print(paste(s[order(as.vector(s[,2])/as.vector(s[,4]),decreasing=T),1],sort(as.vector(s[,2])/as.vector(s[,4]),decreasing=T)))
+class(s[,2])
+#print(s[order(s[,2]/s[,4],decreasing=T),1]) 
+#print(s)
+#hist(deh,main='延畢前二十名學類')
+```
+
+
+##3.圖表解析自己數據涵意推測
+從<br>
+1.準時畢業前20名 全是公立大學
+2.延畢前20名 有百分之70來自私立大學
+知道準時畢業的比例以公立大於私立 非常明顯
