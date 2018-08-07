@@ -4,7 +4,6 @@ author: "呂羿賢"
 date: "2018年8月7日"
 output: html_document
 ---
-自從西元2000年廣設大學以來，大學入學率近百分之百，校系林立<br>而最近指考放榜，幾家歡樂幾家愁，該重考嗎?還是轉學考??或者待在原系所是最好的選擇?<br>正在念書的大學生又該如何知道自己的方向?<br>大學畢業了該不該念碩士?或是直接就業?<br>本資料扎根台灣，帶您一同來了解<br>
 一.良好問題定義<br>
 任務:想了解大學科系與學類的延畢率 起薪等等，了解各科系的生態與潛力<br>
 經驗數據:從政府開放式平台獲取的大學延畢率與各學類的畢業後三年平均薪水<br>
@@ -47,36 +46,41 @@ pie(htlsss,labels=lb1,main="延畢縣市前20名所在")
 ppl<-table(head(h$private_public[lth],20))
 lbppl<-paste(names(ppl),ppl,sep="")
 pie(ppl,label=lbppl,main="公私立準時畢業率前20名")
-```
-
-```{r}
-table(head(h$college[lth],20))
 del<-table(head(h$college[lth],20))
 lbdel<-paste(names(del),del,sep="")
-pie(del,labels=lbdel,main="準時畢業前二十名學類")
 pph<-table(head(h$private_public[htl],20))
 lbpph<-paste(names(pph),pph,sep="")
 pie(pph,label=lbpph,main="公私立延畢率前20名")
+table(head(h$college[lth],20))
+pie(del,labels=lbdel,main="準時畢業前二十名學類")
 ```
+
 
 ```{r}
 table(head(h$college[htl],20))
 deh<-table(head(h$college[htl],20))
 lbdeh<-paste(names(deh),deh,sep="")
 pie(del,labels=lbdeh,main="延畢前二十名學類")
-print(s[order(s[,2],decreasing=T),1])#碩士薪水排行
-print(s[order(s[,4],decreasing=T),1])#學士薪水排行
-print(as.vector(s[,4]))
-print(paste(s[order(as.vector(s[,2])/as.vector(s[,4]),decreasing=T),1],sort(as.vector(s[,2])/as.vector(s[,4]),decreasing=T)))
-class(s[,2])
+#class(s[,2])
 #print(s[order(s[,2]/s[,4],decreasing=T),1]) 
 #print(s)
 #hist(deh,main='延畢前二十名學類')
 ```
 
-
+以下是碩士與學士畢業三年後的起薪平均，也許可以做為要不要考研究所的一個參考依據(越高表示越值得念)
+```{r}
+print(s[order(s[,2],decreasing=T),1])#碩士薪水排行
+print(s[order(s[,4],decreasing=T),1])#學士薪水排行
+print(paste(s[order(as.vector(s[,2])/as.vector(s[,4]),decreasing=T),1],sort(as.vector(s[,2])/as.vector(s[,4]),decreasing=T)))
+```
+```{r pressure, echo=FALSE}
+pie(del,labels=lbdel,main="準時畢業前二十名學類")
+pie(del,labels=lbdeh,main="延畢前二十名學類")
+```
 ##3.圖表解析自己數據涵意推測
-從<br>
-1.準時畢業前20名 全是公立大學
-2.延畢前20名 有百分之70來自私立大學
-知道準時畢業的比例以公立大於私立 非常明顯
+從圖表<br>
+1.準時畢業前20名 全是公立大學<br>而延畢前20名有百分之70來自私立大學<br>
+結論一:知道準時畢業的比例以公立大於私立 非常明顯<br>
+結論二:從圓餅圖對照起薪知道，延畢多待一學期以上的科目，並非與薪水成正比(也就是留得越久不代表為了薪水更多所以留下)
+本來想對照縣市情況，但很分散，並不集中。<br>個人認為此數據上，以大學生而言，選系不選校，再去考轉學考也許是更好的抉擇。
+另外可以從碩士與學士的比值看出，醫學系學士比起念碩士的高薪，所以也許若是目標醫學，重考也許是較好的選擇。
