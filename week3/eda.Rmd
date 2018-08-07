@@ -19,6 +19,7 @@ h<-read_excel("高教資料總表串聯3.xlsx")
 ```
 2.數據圖<br>
 先從比例去理解
+延畢率由大至小與由小至大選出各別前二十位的大學與學類
 ```{r}
 colnames(h)#釐清欄位總類別
 htl<-order(h$delay_rate,decreasing=T)#延畢率由小至大
@@ -54,8 +55,7 @@ pie(pph,label=lbpph,main="公私立延畢率前20名")
 table(head(h$college[lth],20))
 pie(del,labels=lbdel,main="準時畢業前二十名學類")
 ```
-
-
+皆使用圓餅圖，方便視覺化
 ```{r}
 table(head(h$college[htl],20))
 deh<-table(head(h$college[htl],20))
@@ -66,17 +66,11 @@ pie(del,labels=lbdeh,main="延畢前二十名學類")
 #print(s)
 #hist(deh,main='延畢前二十名學類')
 ```
-
 以下是碩士與學士畢業三年後的起薪平均，也許可以做為要不要考研究所的一個參考依據(越高表示越值得念)
 ```{r}
 print(s[order(s[,2],decreasing=T),1])#碩士薪水排行
 print(s[order(s[,4],decreasing=T),1])#學士薪水排行
 print(paste(s[order(as.vector(s[,2])/as.vector(s[,4]),decreasing=T),1],sort(as.vector(s[,2])/as.vector(s[,4]),decreasing=T)))
-```
-
-```{r pressure, echo=FALSE}
-pie(del,labels=lbdel,main="準時畢業前二十名學類")
-pie(del,labels=lbdeh,main="延畢前二十名學類")
 ```
 ##3.圖表解析自己數據涵意推測
 從圖表<br>
