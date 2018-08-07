@@ -6,3 +6,6 @@ week1<br>
 week2<br>
 [hw2_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week2/iris_test.html)<br>
 [hw2_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week2/textmining.html)
+week3<br>
+[hw2_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/eda.html)<br>
+[hw2_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/hw3-2(kmeans-pca-tf-idf).html)
