@@ -1,0 +1,13 @@
+name: correlation1
+title: correlation1
+username:
+account: bearhugdao
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 396948
+bundleId: 1524147
+url: https://bearhugdao.shinyapps.io/correlation1/
+when: 1533704226.3228
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: www/js/google-analytics.js|www/js/sortable.js|index-figure
