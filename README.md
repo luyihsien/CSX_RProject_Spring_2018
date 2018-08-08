@@ -8,7 +8,7 @@ week2<br>
 [hw2_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week2/textmining.html)<br>
 week3<br>
 [hw3_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/eda.html)<br>
-[hw3_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/hw3-2_kmeans-pca-tf-idf_.html)
+[hw3_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/hw3-2_kmeans-pca-tf-idf_.html)<br>
 week6<br>
 ## Overview
 this is a data search tool for student to understand which college or department is a great choice for them
