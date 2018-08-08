@@ -9,3 +9,15 @@ week2<br>
 week3<br>
 [hw3_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/eda.html)<br>
 [hw3_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/hw3-2_kmeans-pca-tf-idf_.html)
+## Overview
+this is a data search tool for student to understand which college or department is a great choice for them
+
+enjoy your searching time!
+  
+## final project1
+
+[search your college](https://bearhugdao.shinyapps.io/college/)
+
+## final project2
+
+[skill for 18 college group](https://marksong.shinyapps.io/teacherwc/)
