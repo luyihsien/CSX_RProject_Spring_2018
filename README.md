@@ -10,7 +10,7 @@ week3<br>
 [hw3_part1](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/eda.html)<br>
 [hw3_part2](https://luyihsien.github.io/CSX_RProject_Spring_2018/week3/hw3-2_kmeans-pca-tf-idf_.html)<br>
 weeks4<br>
-[hw4](https://luyihsien.github.io/CSX_RProject_Spring_2018/week4/hw4.html)<br>
+[hw4](https://luyihsien.github.io/CSX_RProject_Spring_2018/weeks4/hw4.html)<br>
 week6<br> final project<br>
 
 
