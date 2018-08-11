@@ -1,0 +1,41 @@
+---
+title: "大學停看聽 對於大學科系的分析"
+author: "呂羿賢"
+date: "2018年8月10日"
+output: html_document
+---
+前情提要:
+一.良好問題定義<br>
+上次EDA作業，想了解大學科系與學類的延畢率 起薪等等，了解各科系的生態與潛力，而本周<br>
+1.將用ANOVA分析延畢是否與本身校系或學類太冷門，造成學生並未有念下去的動力造成延畢
+2.用迴歸分析觀察延畢率與學生人數是否成負相關<br>
+<H1>一.ANOVA<br>
+透過anova檢定 看看學群跟延畢率是否有顯著關係<br>
+設定虛無假設H0為學群之間與延畢率沒差異<br> 
+
+```{r}
+library(readxl)
+library(ggplot2)
+library(data.table)
+s<-data.frame(fread('Student_RPT_19.csv'))
+h<-read_excel("高教資料總表串聯3.xlsx")
+#colnames(h)#釐清欄位總類別
+hd<-h$delay_rate
+hc<-h$college
+str(hd)
+summary(hc)
+anovatest<-aov(hd~hc,h)
+summary(anovatest)
+```
+顯示為三顆星<br>
+也就是P值介於0與0.001之間<br>
+所以結果相當顯著 表示學群之間是有差異的<br>
+二.線性迴歸
+X軸令為學生人數 Y軸令為延畢率 plot簡易畫圖
+```{r}
+hs<-h$students_amount
+hl<-lm(hd~hs)
+plot(hd~hs,data=h)
+print(hl)
+```
+可觀察到線性並不明顯但有負相關的趨勢
